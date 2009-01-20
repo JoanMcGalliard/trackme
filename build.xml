@@ -1,0 +1,25 @@
+<project name="trackme" default="build" basedir=".">
+
+    <property name="version" value="0.1.00"/>
+    <property name="basedir" value="."/>
+    <property name="dir.php" value="${basedir}/src/website/php/server/"/>
+    <property name="dir.dist" value="${basedir}/dist"/>
+    <property name="productName" value="trackme"/>
+    
+
+    <target name="build"
+            description="Builds everything from scratch"
+            depends="build.server.php"
+            />
+
+    <target name="build.server.php">
+        <mkdir dir="${dir.dist}"/>
+
+        <zip destfile="${dir.dist}/${productName}-php-server-${version}.zip"
+		basedir="${dir.php}"
+             compress="true">
+        </zip>
+    </target>
+
+</project>
+
